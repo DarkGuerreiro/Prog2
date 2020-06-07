@@ -9,11 +9,34 @@
 
 /* podem criar mais struct que achem necessárias*/
 
-
-
 typedef struct
 {
- 		
+	/*nome da remetente da mensagem*/
+	char remetente[TAMANHO_CHAVE];
+
+	/*nome do destinatario da mensagem*/
+	char destinatario[TAMANHO_CHAVE];
+
+	/* mensagem de texto*/
+	char *texto;
+} mensagem;
+
+
+/** elemento da tabela de dispersao */
+typedef struct elem
+{
+	/* apontador para a mensagem*/
+	mensagem *msg;
+
+	/* apontador para o proximo elemento */
+	struct elem * proximo;
+} elemento;
+
+typedef struct
+{   
+    elemento *inicio;
+	elemento *fim;
+	int tamanho;		
 } estrutura;
 
 
@@ -45,7 +68,7 @@ int st_importa_tabela(estrutura *st, tabela_dispersao *td);
 
 /*
 * Extrai a instância do par remetente-destinatário com maior soma de mensagens enviadas e recebidas entre eles, 
-* levando juntamente todas as mensagens enviadas. 
+* levando juntamente todas as mensagens enviadas pelo remetente. 
 * parametro st - apontador para a estrutura criada 
 * parametro remetente - apontador para o utilizador em que vai procurar o que tem mais ligacoes 
 * Retorna apontador para o primeiro elemento de uma lista ligada de ‘elemento’,

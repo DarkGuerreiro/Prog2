@@ -245,11 +245,8 @@ tabela_dispersao* tabela_carrega(char *ficheiro,int tamanho)
             tabela_apaga(td);
             fclose(f);
             return NULL;
-        }
-           
-  
+        }    
     }
-    
     fclose(f);
     return td; 
 }
@@ -267,9 +264,9 @@ void ligacao2(tabela_dispersao *td, char *nomeU1, char *nomeU2, int totMsg[2])  
     totMsg[0] = 0;
     totMsg[1] = 0;
 
-    if(nomeU1 == NULL)
+    if(elem1 == NULL)
         totMsg[0] = -1;
-    if(nomeU2 == NULL)
+    if(elem2 == NULL)
         totMsg[1] = -1;
 
     if(nomeU1 == NULL || nomeU2 == NULL) 
@@ -291,5 +288,5 @@ void ligacao2(tabela_dispersao *td, char *nomeU1, char *nomeU2, int totMsg[2])  
         }
         elem2 = elem2->proximo;                                                                             //Percorre os vários elementos da lista, ao apontar para o próximo
     }
-
 } 
+

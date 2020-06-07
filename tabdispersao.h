@@ -118,11 +118,6 @@ unsigned long hash_krm(const char* chave, int tamanho);
 
 
 
-/**
- * Esta funcao imprime o estado actual da tabela para o ecra
- * parametro td tabela a ser mostrada no ecra
- */
-void mostraTabela(tabela_dispersao *td);
 
 /*
 * Esta funcao preenche uma nova tabela de dispersão a partir de um ficheiro
@@ -139,6 +134,7 @@ tabela_dispersao* tabela_carrega(char *ficheiro,int tamanho);
 * parametro nomeU2 - nome do utilizador 2
 * parametro totMsg - na posição 0 de ‘totMsgs’ retorna o número total de mensagens enviadas do utilizador ‘nomeU1’ para
 * ‘nomeU2’ e na posição 1 de ‘totMsgs’ retorna as enviadas de ‘nomeU2’ para ‘nomeU1’
+* Obs: totMsg[0/1] = -1 caso o utilizador 0/1 não exista enquanto remetente
 */
 void ligacao2(tabela_dispersao *td, char *nomeU1, char *nomeU2, int totMsg[2]);
 
